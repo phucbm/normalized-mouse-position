@@ -41,8 +41,8 @@
     "@phucbm/banner": "^0.0.2",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.10",
-    "jest": "^30.0.3",
-    "jest-environment-jsdom": "^30.0.2",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
     "ts-jest": "^29.4.0",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3"
