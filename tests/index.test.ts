@@ -1,6 +1,6 @@
 import {myUtilityFunction, processElement} from '../src';
 
-describe('PROJECT_NAME', () => {
+describe('normalized-mouse-position', () => {
     // Clean up DOM after each test
     afterEach(() => {
         document.body.innerHTML = '';

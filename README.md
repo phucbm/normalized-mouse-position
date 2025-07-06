@@ -1,11 +1,11 @@
-# PROJECT_NAME
+# normalized-mouse-position
 A TypeScript utility package
 
-[![npm version](https://badgen.net/npm/v/PACKAGE_NAME?icon=npm)](https://www.npmjs.com/package/PACKAGE_NAME)
-[![npm downloads](https://badgen.net/npm/dm/PACKAGE_NAME?icon=npm)](https://www.npmjs.com/package/PACKAGE_NAME)
-[![npm dependents](https://badgen.net/npm/dependents/PACKAGE_NAME?icon=npm)](https://www.npmjs.com/package/PACKAGE_NAME)
-[![github stars](https://badgen.net/github/stars/USERNAME/PROJECT_NAME?icon=github)](https://github.com/USERNAME/PROJECT_NAME/)
-[![github license](https://badgen.net/github/license/USERNAME/PROJECT_NAME?icon=github)](https://github.com/USERNAME/PROJECT_NAME/blob/main/LICENSE)
+[![npm version](https://badgen.net/npm/v/normalized-mouse-position?icon=npm)](https://www.npmjs.com/package/normalized-mouse-position)
+[![npm downloads](https://badgen.net/npm/dm/normalized-mouse-position?icon=npm)](https://www.npmjs.com/package/normalized-mouse-position)
+[![npm dependents](https://badgen.net/npm/dependents/normalized-mouse-position?icon=npm)](https://www.npmjs.com/package/normalized-mouse-position)
+[![github stars](https://badgen.net/github/stars/phucbm/normalized-mouse-position?icon=github)](https://github.com/phucbm/normalized-mouse-position/)
+[![github license](https://badgen.net/github/license/phucbm/normalized-mouse-position?icon=github)](https://github.com/phucbm/normalized-mouse-position/blob/main/LICENSE)
 
 ## 🚀 Quick Start
 
@@ -22,21 +22,21 @@ npx gen-from npm-utils-template --here
 ```
 
 ### Or use GitHub's "Use this template" button
-Click the green "Use this template" button on the [GitHub repository page](https://github.com/USERNAME/PROJECT_NAME).
+Click the green "Use this template" button on the [GitHub repository page](https://github.com/phucbm/normalized-mouse-position).
 
 ## Installation
 ```bash
-npm i PACKAGE_NAME
+npm i normalized-mouse-position
 ```
 ```bash
-pnpm add PACKAGE_NAME
+pnpm add normalized-mouse-position
 ```
 
 ## Usage
 ```typescript
-import {myUtilityFunction} from 'PACKAGE_NAME'
+import {myUtilityFunction} from 'normalized-mouse-position'
 // or
-import myUtilityFunction from 'PACKAGE_NAME'
+import myUtilityFunction from 'normalized-mouse-position'
 
 // Basic usage
 const result = myUtilityFunction('your input');
@@ -90,4 +90,4 @@ This repository uses automated dependency management and publishing:
 - **📤 Publish NPM Action** - Builds and publishes to npm registry when releases are created
 
 ## License
-MIT © [USERNAME](https://github.com/USERNAME)
+MIT © [phucbm](https://github.com/phucbm)
