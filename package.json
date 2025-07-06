@@ -1,5 +1,5 @@
 {
-  "name": "package-name",
+  "name": "normalized-mouse-position",
   "version": "1.0.0",
   "description": "A TypeScript utility package",
   "type": "module",
@@ -20,21 +20,23 @@
   },
   "keywords": [
     "typescript",
-    "utility"
+    "utility",
+    "javascript",
+    "normalized-mouse-position"
   ],
   "author": {
-    "name": "USERNAME",
-    "url": "https://github.com/USERNAME"
+    "name": "phucbm",
+    "url": "https://github.com/phucbm"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/USERNAME/PROJECT_NAME.git"
+    "url": "https://github.com/phucbm/normalized-mouse-position"
   },
   "bugs": {
-    "url": "https://github.com/USERNAME/PROJECT_NAME/issues"
+    "url": "https://github.com/phucbm/normalized-mouse-position/issues"
   },
-  "homepage": "https://github.com/USERNAME/PROJECT_NAME",
+  "homepage": "https://github.com/phucbm/normalized-mouse-position",
   "devDependencies": {
     "@phucbm/banner": "^0.0.2",
     "@types/jest": "^30.0.0",
