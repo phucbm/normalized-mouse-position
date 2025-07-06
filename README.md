@@ -1,28 +1,12 @@
 # normalized-mouse-position
-A TypeScript utility package
+
+Convert mouse coordinates to normalized values relative to any origin point for smooth UI interactions and animations.
 
 [![npm version](https://badgen.net/npm/v/normalized-mouse-position?icon=npm)](https://www.npmjs.com/package/normalized-mouse-position)
 [![npm downloads](https://badgen.net/npm/dm/normalized-mouse-position?icon=npm)](https://www.npmjs.com/package/normalized-mouse-position)
 [![npm dependents](https://badgen.net/npm/dependents/normalized-mouse-position?icon=npm)](https://www.npmjs.com/package/normalized-mouse-position)
 [![github stars](https://badgen.net/github/stars/phucbm/normalized-mouse-position?icon=github)](https://github.com/phucbm/normalized-mouse-position/)
 [![github license](https://badgen.net/github/license/phucbm/normalized-mouse-position?icon=github)](https://github.com/phucbm/normalized-mouse-position/blob/main/LICENSE)
-
-## 🚀 Quick Start
-
-### Use this template with gen-from (recommended)
-```bash
-# Generate from this template
-npx gen-from npm-utils-template
-
-# Or use interactive mode
-npx gen-from
-
-# Generate in current directory
-npx gen-from npm-utils-template --here
-```
-
-### Or use GitHub's "Use this template" button
-Click the green "Use this template" button on the [GitHub repository page](https://github.com/phucbm/normalized-mouse-position).
 
 ## Installation
 ```bash
@@ -32,34 +16,121 @@ npm i normalized-mouse-position
 pnpm add normalized-mouse-position
 ```
 
-## Usage
-```typescript
-import {myUtilityFunction} from 'normalized-mouse-position'
-// or
-import myUtilityFunction from 'normalized-mouse-position'
+## Quick Start
 
-// Basic usage
-const result = myUtilityFunction('your input');
+```typescript
+import { getNormalizedMousePosition } from 'normalized-mouse-position';
+
+// Basic usage - mouse position relative to center
+const pos = getNormalizedMousePosition({
+    x: mouseEvent.clientX,
+    y: mouseEvent.clientY,
+    origin: "50% 50%" // center origin
+});
+// Result: {x: 0.3, y: -0.8, origin: {x: 0.5, y: 0.5}, size: {width: 800, height: 600}}
+```
+
+## Key Features
+
+- 🎯 **Configurable Origin** - Use any point as reference: center, corners, or custom positions
+- 📏 **Normalized Output** - Always get predictable [-1, 1] range (or beyond if unclamped)
+- 🔄 **Axis Inversion** - Perfect for 3D controls and mirror effects
+- 🎨 **Multiple Targets** - Works with window or any DOM element
+- 📦 **TypeScript Ready** - Full type safety with comprehensive JSDoc
+
+## Examples
+
+### Different Origin Points
+```typescript
+// Center origin (default)
+const centerPos = getNormalizedMousePosition({
+    x: mouseEvent.clientX,
+    y: mouseEvent.clientY,
+    origin: "50% 50%"
+});
+
+// Top-left origin  
+const topLeftPos = getNormalizedMousePosition({
+    x: mouseEvent.clientX,
+    y: mouseEvent.clientY,
+    origin: "0 0"
+});
+
+// Custom origin
+const customPos = getNormalizedMousePosition({
+    x: mouseEvent.clientX,
+    y: mouseEvent.clientY,
+    origin: "25% 75%"
+});
+```
+
+### Target Specific Elements
+```typescript
+const elementPos = getNormalizedMousePosition({
+    x: mouseEvent.clientX,
+    y: mouseEvent.clientY,
+    target: document.querySelector('.my-element'),
+    origin: "50% 50%"
+});
+```
+
+### 3D-Style Controls
+```typescript
+const controlPos = getNormalizedMousePosition({
+    x: mouseEvent.clientX,
+    y: mouseEvent.clientY,
+    origin: "50% 50%",
+    invertY: true, // Mouse up = positive Y (like 3D coordinates)
+    clamp: false   // Allow values beyond [-1, 1]
+});
+```
+
+### Parallax Effects
+```typescript
+// Mouse parallax with GSAP
+document.addEventListener('mousemove', (e) => {
+    const pos = getNormalizedMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+        origin: "50% 50%"
+    });
+    
+    gsap.to('.parallax-element', {
+        x: pos.x * 50,
+        y: pos.y * 50,
+        duration: 0.3
+    });
+});
 ```
 
 ## API
-### `myUtilityFunction(input?: any): any`
-Main utility function that processes the input.
+
+### `getNormalizedMousePosition(options)`
 
 **Parameters:**
-- `input` (optional) - The input to process
+- `x: number` - Mouse X coordinate
+- `y: number` - Mouse Y coordinate
+- `origin?: string` - Origin point as "x% y%" (default: "50% 50%")
+- `target?: Window | Element` - Reference element (default: window)
+- `clamp?: boolean` - Limit to [-1, 1] range (default: true)
+- `invertX?: boolean` - Invert X axis (default: false)
+- `invertY?: boolean` - Invert Y axis (default: false)
 
 **Returns:**
-- The processed result
-
-### `processElement(element: HTMLElement): HTMLElement`
-Function for DOM element processing.
-
-**Parameters:**
-- `element` - HTML element to process
-
-**Returns:**
-- The processed element
+```typescript
+{
+    x: number;        // Normalized X coordinate
+    y: number;        // Normalized Y coordinate  
+    origin: {         // Origin as decimal values
+        x: number;
+        y: number;
+    };
+    size: {           // Target dimensions
+        width: number;
+        height: number;
+    };
+}
+```
 
 ## Development
 ```bash
@@ -75,19 +146,6 @@ pnpm run build
 # Run tests in watch mode
 pnpm run test:watch
 ```
-
-## Automated Workflows
-```
-┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│ DEPENDABOT  │───▶│    TEST     │───▶│   RELEASE   │───▶│   PUBLISH   │
-└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
-```
-
-This repository uses automated dependency management and publishing:
-- **📦 Dependabot** - Creates PRs for dependency updates (daily for npm, weekly for actions)
-- **🧪 Test PR Action** - Auto-tests and merges passing Dependabot PRs with comment feedback  
-- **🚀 Dependabot Release Action** - Creates releases with patch version bumps when dependencies merge
-- **📤 Publish NPM Action** - Builds and publishes to npm registry when releases are created
 
 ## License
 MIT © [phucbm](https://github.com/phucbm)
