@@ -1,6 +1,6 @@
 {
   "name": "normalized-mouse-position",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Convert mouse coordinates to normalized values relative to any origin point for smooth UI interactions and animations.",
   "type": "module",
   "main": "dist/index.js",
